@@ -22,6 +22,7 @@ const render = (request, response) => {
     if (!error) {
       response.writeHead(200, ctype);
       response.write(content);
+      // this is another way to to
     } else {
       response.writeHead(404, ctype);
       response.write(error.message);
