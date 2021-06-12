@@ -1,0 +1,16 @@
+{
+  "name": "app-4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "austiniqer",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
