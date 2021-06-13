@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Engine JavaScript</title>
+</head>
+<body>
+	<h1>EJS</h1>
+	<div class="continer">
+		<h2>My name is <%= name %></h2>
+		<h2 style="color:#ccc">My lastname is <%= lastname %> </h2>
+		<h3>My age is <%= age %> </h3>
+		<h4>My status is <%= status %> </h4>
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid distinctio animi neque dignissimos asperiores, quae inventore amet fugiat harum obcaecati perspiciatis dolor officiis, numquam sit autem aspernatur libero at facere?</p>
+		<% if(number < 5) { %> 
+			<%= number %> 
+		<% }else { %> 
+			<p>number unequal to 5</p>
+		<% } %> 
+	</div>
+</body>
+</html>
