@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: black;
+      }
+      nav {
+        background-color: #ccc;
+        height: 50px;
+        width: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav ul {
+        display: flex;
+        justify-content: flex-start;
+      }
+      a {
+        text-decoration: none;
+        margin-right: 2rem;
+      }
+      li {
+        list-style-type: none;
+      }
+    </style>
+    <title>Shop</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h2>Menu</h2>
+        <ul>
+          <li><a href="/">Shop</a></li>
+          <li><a href="/admin/add-product">Add Product</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main
+      style="
+        width: 70%;
+        display: flex;
+		flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <h1>My Products</h1>
+      <p>List of all the products...</p>
+    </main>
+  </body>
+</html>
