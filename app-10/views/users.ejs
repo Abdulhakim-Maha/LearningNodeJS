@@ -1,0 +1,13 @@
+<%- include('includes/header.ejs') %> 
+<h1>Users</h1>
+<ul>
+	<% if(users.length >0 ) { %> 
+		<% for(user of users){ %> 
+			<!-- <% console.log(user.name) %>  -->
+			<li><%= user.name %> </li>
+		<% } %> 
+	<% }else { %> 
+		<p>No User</p>
+	<% } %> 
+</ul>
+</body>
