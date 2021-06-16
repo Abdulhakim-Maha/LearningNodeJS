@@ -1,1 +1,16 @@
-[{"title":"A book","imageUrl":"https://th.bing.com/th/id/R09db08739cd0239854d288afca2cf1b4?rik=bzrwW%2fuuib%2f6ZQ&pid=ImgRaw","description":"An Interesting book!","price":"12.99"}]
+[
+  {
+    "title": "Book",
+    "imageUrl": "https://th.bing.com/th/id/R09db08739cd0239854d288afca2cf1b4?rik=bzrwW%2fuuib%2f6ZQ&pid=ImgRaw",
+    "description": "A Interesting book!",
+    "price": "12.99",
+    "id": "0.3270888639804366"
+  },
+  {
+    "title": "Skateboard",
+    "imageUrl": "https://th.bing.com/th/id/Rdb156ed6cb6bd2b17b75389125446a32?rik=AkK%2b34kGrOc5%2fA&pid=ImgRaw",
+    "description": "A cool skateboard",
+    "price": "15.99",
+    "id": "0.17339394583240186"
+  }
+]
