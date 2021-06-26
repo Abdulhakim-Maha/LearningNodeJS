@@ -94,7 +94,7 @@ exports.postSignup = (req, res, next) => {
     })
     .catch((err) => console.log(err));
 };
-
+//hello world
 exports.postLogout = (req, res, next) => {
   req.session.destroy((err) => {
     console.log(err);
