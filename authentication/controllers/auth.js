@@ -1,3 +1,5 @@
+const crypto = require("crypto");
+
 const User = require("../models/user");
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
@@ -7,7 +9,7 @@ const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
       api_key:
-        "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",
+        "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",
     },
   })
 );
@@ -25,6 +27,48 @@ exports.getSignup = (req, res, next) => {
     path: "/signup",
     pageTitle: "Signup",
     isAuthenticated: false,
+  });
+};
+
+exports.getReset = (req, res) => {
+  res.render("auth/reset", {
+    path: "/reset",
+    pageTitle: "Reset Password",
+  });
+};
+
+exports.postReset = (req, res) => {
+  crypto.randomBytes(32, (err, buffer) => {
+    if (err) {
+      console.log(err);
+      return res.redirect("/reset");
+    }
+    const token = buffer.toString("hex");
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (!user) {
+          return res.redirect("/reset");
+        }
+        user.resetToken = token;
+        user.resetTokenExpiration = Date.now() + 3600000;
+        return user.save();
+      })
+      .then((result) => {
+        res.redirect("/");
+        transporter
+          .sendMail({
+            to: req.body.email,
+            from: '"austiniqer </>" <63011075@kmitl.ac.th>',
+            subject: "Password reset",
+            html: "<h1> Click this link to reset</h1>",
+            // html: `
+            //       <p>You requested a password reset </p>
+            //       <p>Click this <a href="http://localhost:3000/reset/${token}>link</a> to set a new password. </p>
+            //   `,
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
   });
 };
 
@@ -90,7 +134,8 @@ exports.postSignup = (req, res, next) => {
             subject: "Sign up succeeded!",
             html: "<h1> Your successfully sign up!</h1>",
           });
-        }).catch(err => console.log(err))
+        })
+        .catch((err) => console.log(err));
     })
     .catch((err) => console.log(err));
 };
