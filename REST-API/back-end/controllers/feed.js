@@ -24,12 +24,18 @@ exports.createPost = (req, res, next) => {
     error.statusCode = 422;
     throw error;
   }
+  if(!req.file){
+    const error = new Error('No image provided.')
+    error.statusCode = 422
+    throw error;
+  }
+  const imageUrl = req.file.path.replace('\\','/')
   const title = req.body.title;
   const content = req.body.content;
   const post = new Post({
     title: title,
     content: content,
-    imageUrl: "images/logo.png",
+    imageUrl: imageUrl, 
     creator: {
       name: "austiniqer",
     },
@@ -37,6 +43,7 @@ exports.createPost = (req, res, next) => {
   post
     .save()
     .then((result) => {
+      // console.log(result)
       console.log("created product successfull!");
       res.status(201).json({
         message: "Post created successfully!",
@@ -69,3 +76,18 @@ exports.getPost = (req, res, next) => {
       next(err);
     });
 };
+
+exports.updatePost = (req, res, next) => {
+  const postId = req.params.postId;
+  const title = req. body.title;
+  const content = req.body.content;
+  let imageUrl = req.body.image;
+  if(req.file){
+    imageUrl = req.file.path;
+  }
+  if(!imageUrl){
+    const error = new Error('No file picked.')
+    error.statusCode = 422
+    throw error;
+  }
+}
